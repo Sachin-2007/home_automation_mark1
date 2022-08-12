@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <title>Kibo</title>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="007">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    		<script>
+    			var isTouchSupported = 'ontouchstart' in window;
+    			var startPressEvent = isTouchSupported ? "touchstart" : "mousedown";
+    			var stopPressEvent = isTouchSupported ? "touchend" : "mouseup";
+
+    			function move(e) {
+    					$.post($(this).attr('id'));
+    					e.stopPropagation();
+    			}
+
+    			function makeControl(domElementId) {
+    				$(domElementId).bind(startPressEvent, move).bind(stopPressEvent, stop);
+    			}
+
+    			$(document).ready(function() {
+            makeControl("#on");
+    				makeControl("#off");
+    			});
+    		</script>
+
+        <link rel="stylesheet" href="../static/styles.css"></link>
+        <link href="http://fonts.cdnfonts.com/css/ostrich-sans-2" rel="stylesheet">
+    </head>
+
+    <body>
+        <h1 class = head1>Kibo</h1>
+        <h4 class = tagline>Home automation - Prototype 1</h4>
+        <div class="wrapper">
+          <button id="on" class="button1">ON</button>
+          <button id="off" class="button1">OFF</button>
+        </div>
+    </body>
+</html>
