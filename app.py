@@ -11,8 +11,8 @@ def main():
 @app.route("/on", methods=['GET', 'POST'])
 def on():
     controls.light_on()
-	print('ON')
-	return ('', 204)
+    print('ON')
+    return ('', 204)
 
 @app.route("/off", methods=['GET', 'POST'])
 def off():
