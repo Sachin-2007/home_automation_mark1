@@ -1,5 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for, Response
+from control import *
 from cctv import gen_frames
+import RPi.GPIO as gpio
 
 app = Flask(__name__)
 
@@ -29,11 +31,13 @@ def cctv():
 
 @app.route("/on", methods=['GET', 'POST'])
 def on():
+    light_on()
     print('ON')
     return ('', 204)
 
 @app.route("/off", methods=['GET', 'POST'])
 def off():
+    light_off()
     print('OFF')
     return ('', 204)
 
@@ -45,6 +49,8 @@ try:
     if __name__ == '__main__':
         app.run(host='0.0.0.0', port=3000, debug=True)
 except KeyboardInterrupt:
+    gpio.cleanup()
     print('clean')
 finally:
+    gpio.cleanup()
     print('clean')

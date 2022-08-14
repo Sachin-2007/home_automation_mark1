@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <title>Kibo</title>
+
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    		<script src="{{url_for('static', filename='index.js')}}"></script>
+        <link rel="stylesheet" href="../static/styles.css"></link>
+        <link href="http://fonts.cdnfonts.com/css/ostrich-sans-2" rel="stylesheet">
+    </head>
+
+    <body>
+        <h1 class = head1>Kibo</h1>
+        <h4 class = tagline>Home automation - Prototype 1</h4>
+        <div class="wrapper">
+          <form action="{{url_for("redirect_page")}}" method="post">
+            <input type='submit' name='coode' class='button1' value="control">
+            <input type='submit' name='coode' class='button1' value="cctv">
+        </div>
+    </body>
+</html>
