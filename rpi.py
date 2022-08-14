@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, redirect, url_for, Response
-from control import *
+from controls import *
 from cctv import gen_frames
 import RPi.GPIO as gpio
 
